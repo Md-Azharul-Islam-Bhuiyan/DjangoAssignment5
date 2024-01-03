@@ -27,6 +27,7 @@ class Review(models.Model):
 class BorrowHistory(models.Model):
     borrower =  models.ForeignKey(UserLibraryAccount,on_delete=models.CASCADE)
     book = models.ForeignKey(BookModel,on_delete=models.CASCADE)
+    balanace_after_transaction = models.DecimalField(decimal_places=2, max_digits=12,null=True, blank=True)
     is_returned = models.BooleanField(default=False)
     borrow_date = models.DateTimeField(auto_now_add=True)
     

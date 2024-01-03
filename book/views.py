@@ -51,15 +51,17 @@ def borrowNow(request, id):
     
     book = BookModel.objects.get(id=id)
     user = UserLibraryAccount.objects.get(user=request.user)
+    # borrower= BorrowHistory.objects.get(user=request.user)
     # print(user)
     if book.quantity> 0 and user.balance >= book.price:
         book.quantity-=1
         user.balance -= book.price
+        balanace_after_transaction = user.balance
         book.save()
         user.save()
-        BorrowHistory.objects.create(borrower=user, book=book)
+        BorrowHistory.objects.create(borrower=user, book=book, balanace_after_transaction=balanace_after_transaction)
     # messages.SUCCESS(request,'Book Succesfully Borrowed')
-    send_borrow_email(request.user, book.price, "Borrow Messages", 'borrow_email.html', book.book_name)    
+        send_borrow_email(request.user, book.price, "Borrow Messages", 'borrow_email.html', book.book_name)    
     return redirect('home')
 
 
