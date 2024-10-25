@@ -29,7 +29,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://pathagar-6un5.onrender.com','https://*.127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1','https://*.127.0.0.1']
 
 
 # Application definition
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'library_management_system.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://pathagar_vxo4_user:6I1lD0ccr3wvhJhaCPe2zaGwTp3ZXnnh@dpg-coghkluv3ddc73edln80-a.oregon-postgres.render.com/pathagar_vxo4',
+        default='postgresql://pathagar_xf4m_user:EJTGxSQbMAf9F2QKFRbg7NjHOWFwSbG0@dpg-csdqfr5svqrc7393ils0-a/pathagar_xf4m',
     )
 }
 

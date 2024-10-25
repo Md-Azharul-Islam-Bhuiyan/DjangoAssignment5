@@ -1,22 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
-
+<!-- <link href="{% static "style.css" %}" rel="stylesheet"> -->
 {% block content %}
 <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
-    <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6 bg-white rounded-2xl bg-opacity-70 mx-3">
+    <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6  bg-opacity-70 mx-3">
         <h1 class="font-bold text-4xl my-4">Welcome to Pathagar</h1>
         <p class="leading-normal mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit porro exercitationem consequuntur odit ratione inventore unde itaque hic nostrum! Illum nihil vitae perspiciatis, consequuntur veritatis eligendi cupiditate. Autem, consequuntur excepturi.
+            Unlock the World of Knowledge with Pathagar: Your Gateway to Infinite Learning.
+            Embark on a Literary Journey with Pathagar: Your Gateway to Infinite Worlds of Knowledge
         </p>
         
     </div>
-    <div class="w-2/2 py-6 text-center">
-        <img class="rounded-2xl" src="{% static 'img/library-with-books.jpg' %}" alt="Library Image">
+    <div class="home_images">
+        <div class="home_swiper swiper">
+            <div class="swiper-wrapper">
+                <article class="home_article swiper-slide">
+                    <img src="{% static 'img/Book-1.png' %}" alt="Library Image" class="home_img">
+                </article>
+                <article class="home_article swiper-slide">
+                    <img src="{% static 'img/Book-2.png' %}" alt="Library Image" class="home_img">
+                </article>
+                <article class="home_article swiper-slide">
+                    <img src="{% static 'img/Book-3.png' %}" alt="Library Image" class="home_img">
+                </article>
+                <article class="home_article swiper-slide">
+                    <img src="{% static 'img/Book-4.png' %}" alt="Library Image" class="home_img">
+                </article>
+            </div>     
+        </div>
     </div>
 </div>
 
-<div class="flex flex-wrap p-4">
-    <div class="w-full md:w-1/6 p-3 bg-white">
+<div>
+    <!-- ============category=========== -->
+</div>
+
+
+<div class="p-2">
+    <!-- <div class="w-full md:w-1/6 p-3 bg-white">
         <h5 class="text-center">All Categories</h5>
         {% for cat in  categories %}
         <div class="form-check">
@@ -26,33 +47,126 @@
             </label>
         </div>
         {% endfor %}
-    </div>
-    <div class="w-full md:w-5/6 p-3">
+    </div> -->
+    <!-- <div class="w-full md:w-5/6 p-3">
         <h3>{{ data | length }} results found</h3>
         <div class="flex flex-wrap pt-5">
             {% for p in data %}
             <div class="w-full md:w-1/4 lg:w-1/6 xl:w-1/6 p-2">
-                <div class="card mx-2">
-                    <img src="{{ p.image.url }}" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">{{ p.book_name }}</a></h5>
-                        <h5 class="card-title"><a href=""><b>Price:</b>{{ p.price }}</a></h5>
-                        <p class="card-text">
-                            {{ p.description | truncatewords:7 }}
+                <div class="card bg-white text-gray-700 w-7 min-h-[10rem] border rounded-md overflow-hidden hover:shadow-lg">
+                    <img class="w-full h-full object-cover" src="{{ p.image.url }}" alt="">
+                    <div class="card-body p-2">
+                        <h5 class="card-title font-semibold truncate"><a href="">{{ p.book_name}}</a></h5>
+                        <h5 class="card-title"><a href=""><b>BDT </b>{{ p.price }}</a></h5>
+                        <p class="card-text truncate">
+                            {{ p.description}}
                         </p>
                         
-                        <p class="my-4">
-                            <a href="{% url 'detail_book' p.id %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-decoration-none">
+                        <div class="flex my-4">
+                            <a href="{% url 'detail_book' p.id %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-decoration-none m-auto">
                                 View Details
                             </a>
-                        </p>
+                        </div>
                         
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-    </div>
+    </div> -->
+    
 </div>
 
+<!-- =====================Service==================== -->
+<section class="Services section">
+    <div class="services_container container grid lg:grid-cols-3">
+        <article class="services_card">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3 class="services_title">Free Shipping</h3>
+            <p class="services_description">
+             Order More Than ৳500
+            </p>
+        </article>
+        <article class="services_card">
+            <i class="ri-lock-2-fill"></i>
+            <h3 class="services_title">Secure Payment</h3>
+            <p class="services_description">
+             100% Secure Payment
+            </p>
+        </article>
+        <article class="services_card">
+            <i class="ri-customer-service-2-fill"></i>
+            <h3 class="services_title">24/7 Support</h3>
+            <p class="services_description">
+             Call Us Anytime
+            </p>
+        </article>
+    </div>
+</section>
+
+
+ <!--==================== FEATURED ====================-->
+ <section class="featured section" id="featured">
+    <h2 class="section_title m-auto">Featured Books</h2>
+    <div class="featured_container container">
+        <div class="featured_swiper swiper">
+            <div class="swiper-wrapper">
+                <article class="featured_card swiper-slide">
+                    <img src="{% static "img/Book-1.png" %}" alt="img" class="featured_img">
+                    <h2 class="featured_title">Featured Book</h2>
+                    <div class="featured_prices">
+                        <span class="featured_price">৳300</span>
+                    </div>
+                    <button class="button" style="background: #0c1645; color:white; padding: 5px 7px;">Learn More</button>
+                </article>
+                <article class="featured_card swiper-slide">
+                    <img src="{% static "img/Book-2.png" %}" alt="img" class="featured_img">
+                    <h2 class="featured_title">Featured Book</h2>
+                    <div class="featured_prices">
+                        <span class="featured_price">৳300</span>
+                    </div>
+                    <button class="button" style="background: #0c1645; color:white; padding: 5px 7px;">Learn More</button>
+                </article>
+                <article class="featured_card swiper-slide">
+                    <img src="{% static "img/Book-3.png" %}" alt="img" class="featured_img">
+                    <h2 class="featured_title">Featured Book</h2>
+                    <div class="featured_prices">
+                        <span class="featured_price">৳300</span>
+                    </div>
+                    <button class="button" style="background: #0c1645; color:white; padding: 5px 7px;">Learn More</button>
+                </article>
+                <article class="featured_card swiper-slide">
+                    <img src="{% static "img/Book-4.png" %}" alt="img" class="featured_img">
+                    <h2 class="featured_title">Featured Book</h2>
+                    <div class="featured_prices">
+                        <span class="featured_price">৳300</span>
+                    </div>
+                    <button class="button" style="background: #0c1645; color:white; padding: 5px 7px;">Learn More</button>
+                </article>
+            </div>
+            <div class="swiper-button-prev">
+                <i class="ri-arrow-left-s-line"></i>
+            </div>
+            <div class="swiper-button-next">
+                <i class="ri-arrow-right-s-line"></i>
+            </div>
+        </div>
+    </div>        
+ </section>
+
+ <!-- ====================Discount Container======================== -->
+
+
+ <div class="discount_container container grid">
+    <div class="discount_data">
+        <h2 class="discount_title section_title">
+            Up To 50%  Discount
+        </h2>
+        <p class="discount_description">
+            Take advantages of the discount days we have
+            for you, buy books from your favorite writers,
+            the more you buy, the more discounts we have for you.
+        </p>
+    </div>
+ </div>
 {% endblock %}

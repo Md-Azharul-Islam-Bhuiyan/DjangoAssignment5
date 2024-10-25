@@ -1,25 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Dummy Library System" />
-        <title>
-            {% block head_title %}Pathagar{% endblock %}
-        </title>
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        
-    </head>
-    <body class="bg-gradient-to-r from-teal-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-        {% include 'navbar.html' %}
-        {% block body %}
-            <div class="lg:container lg:mx-auto" id="main">
-                {% include 'messages.html' %}
-                {% block content %}
-                {% endblock %}
-            </div>
-        {% endblock %}
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Dummy Library System" />
+    <title>{% block head_title %}Pathagar{% endblock %}</title>
+    
+    <link
+      href="https://unpkg.com/tailwindcss@^1.5/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css
+" rel="stylesheet">
+    
+    <link href="{% static "style.css" %}" rel="stylesheet">
+    
+  </head>
+  <body>
+    {% include 'navbar.html' %} {% block body %}
+    <div class="lg:container lg:mx-auto lg:my-auto main_container" id="main">
+      {% include 'messages.html' %} {% block content %} {% endblock %}
+    </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <script src="{% static "main.js" %}"></script>
+  </body>
 </html>
