@@ -83,24 +83,24 @@ WSGI_APPLICATION = 'library_management_system.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://pathagar_vxo4_user:6I1lD0ccr3wvhJhaCPe2zaGwTp3ZXnnh@dpg-coghkluv3ddc73edln80-a.oregon-postgres.render.com/pathagar_vxo4',
-    )
-}
-
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env("DB_NAME"),
-#         'USER': env("DB_USER"),
-#         'PASSWORD': env("DB_PASSWORD"),
-#         'HOST': env("DB_HOST"),
-#         'PORT': env("DB_PORT"),
-#     }
+#     'default': dj_database_url.config(
+#         # Feel free to alter this value to suit your needs.
+#         default='postgres://pathagar_vxo4_user:6I1lD0ccr3wvhJhaCPe2zaGwTp3ZXnnh@dpg-coghkluv3ddc73edln80-a.oregon-postgres.render.com/pathagar_vxo4',
+#     )
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
+    }
+}
 
 # DATABASES = {
 #     'default': {
